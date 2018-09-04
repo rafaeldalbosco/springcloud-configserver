@@ -1,0 +1,44 @@
+server:
+  port: ${PORT:8080}
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
+
+zuul:
+  routes:
+    security:
+      path: /uaa/**
+      stripPrefix: false
+      serviceId: SECURITY-SERVICE
+    registrar:
+      path: /timelineprofissional/**
+      serviceId: REGISTRAR-SERVICE
+    timeline:
+      path: /timelineprofissional/**
+      serviceId: TIMELINE-SERVICE
+    timelineprofissional:
+      path: /timelineprofissional/**
+      serviceId: TIMELINEPROFISSIONAL-SERVICE
+    notificacao:
+      path: /notificacao/**
+      serviceId: NOTIFICACAO-SERVICE
+    cartao:
+      path: /cartao/**
+      serviceId: CARTAO-SERVICE
+    administracao:
+      path: /administracao/**
+      serviceId: ADMINISTRACAO-SERVICE
+  add-proxy-headers: true
+
+---
+spring:
+  profiles: docker
+
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://security-service:9999/uaa/user

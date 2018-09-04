@@ -1,0 +1,54 @@
+server:
+  ip: 127.0.0.1
+  port: ${PORT:8084}
+
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
+
+spring:
+
+  datasource:
+    platform: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/NOTAFICACAO?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: root
+    connectionProperties: useUnicode=true;characterEncoding=utf-8;
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+        type: trace
+        generate_statistics: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  flyway:
+    enabled: true
+    schemas: NOTAFICACAO
+    validate-on-migrate: true
+
+---
+
+spring:
+  profiles: docker
+
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://security-service:9999/uaa/user
