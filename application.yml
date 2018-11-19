@@ -18,7 +18,7 @@ endpoints:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.100.81:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 feign:
   hystrix:
