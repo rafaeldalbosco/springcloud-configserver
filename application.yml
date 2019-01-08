@@ -6,10 +6,10 @@ info:
 
 #logging:
 #  level: debug
-agende
-  pubsub
-    topic
-      profissional
+agende:
+  pubsub:
+    topic:
+      profissional:
         listener: profissional
         subscribe: profissional-subscribe
         
