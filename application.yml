@@ -12,6 +12,14 @@ agende:
       profissional:
         listener: profissional
         subscribe: profissional-subscribe
+      agendamento:
+        listener: agendamento
+        subscribe: agendamento-subscribe
+        publish: agendamento-to-web
+      usuario:
+        listener: paciente
+        subscribe: paciente-subscribe
+        publish: paciente-to-web
         
 endpoints:
   restart:
