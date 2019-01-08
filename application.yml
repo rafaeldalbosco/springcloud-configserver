@@ -6,7 +6,13 @@ info:
 
 #logging:
 #  level: debug
-
+agende
+  pubsub
+    topic
+      profissional
+        listener: profissional
+        subscribe: profissional-subscribe
+        
 endpoints:
   restart:
     enabled: true
