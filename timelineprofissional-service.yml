@@ -9,6 +9,9 @@ security:
 
 spring:
 
+  main:
+    allow-bean-definition-overriding: true
+    
   datasource:
     platform: mysql
     driver-class-name: com.mysql.jdbc.Driver
