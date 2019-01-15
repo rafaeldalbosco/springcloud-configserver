@@ -8,7 +8,8 @@ security:
       userInfoUri: http://localhost:9999/uaa/user
 
 spring:
-
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     platform: mysql
     driver-class-name: com.mysql.jdbc.Driver
