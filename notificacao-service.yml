@@ -11,7 +11,7 @@ spring:
 
   datasource:
     platform: mysql
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost/NOTIFICACAO?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&useTimezone=true&serverTimezone=UTC
     username: root
     password: root
