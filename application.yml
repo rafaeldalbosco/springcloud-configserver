@@ -40,8 +40,8 @@ feign:
   client:
     config:
       feignName:
-        connectTimeout: 5000
-        readTimeout: 5000
+        connectTimeout: 50000
+        readTimeout: 50000
         loggerLevel: full
 #        errorDecoder: com.example.SimpleErrorDecoder
 #        retryer: com.example.SimpleRetryer
@@ -58,9 +58,14 @@ hystrix:
   command:
     default:
       execution:
+        timeout:
+          enabled: false
         isolation:
           strategy: SEMAPHORE
-
+ribbon:
+  ConnectTimeout:  10000
+  ReadTimeout:  10000
+  
 ---
 spring:
   profiles: docker
