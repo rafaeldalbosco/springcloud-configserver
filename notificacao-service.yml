@@ -1,6 +1,6 @@
 server:
   ip: 127.0.0.1
-  port: ${PORT:8084}
+  port: ${PORT:8005}
 
 security:
   oauth2:
