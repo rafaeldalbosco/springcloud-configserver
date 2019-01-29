@@ -71,6 +71,12 @@ spring:
   profiles: producao
   zipkin:
     baseUrl: http://zipkin-service:9411
+  cloud:
+    discovery:
+      client:
+        simple:
+          local:
+            uri: http://eureka-service:8761/eureka/
 eureka:
   client:
     serviceUrl:
