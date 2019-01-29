@@ -68,7 +68,7 @@ ribbon:
   
 ---
 spring:
-  profiles: docker
+  profiles: producao
   zipkin:
     baseUrl: http://zipkin-service:9411
 
