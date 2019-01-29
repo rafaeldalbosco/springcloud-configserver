@@ -77,10 +77,10 @@ spring:
         simple:
           local:
             uri: http://eureka-service:8761/eureka/
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-service:8761/eureka/
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://eureka-service:8761/eureka/
 #logging:
 #  level: warn
 #  logstash:
