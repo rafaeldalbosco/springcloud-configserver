@@ -36,7 +36,7 @@ zuul:
 
 ---
 spring:
-  profiles: docker
+  profiles: producao
 
 security:
   oauth2:
