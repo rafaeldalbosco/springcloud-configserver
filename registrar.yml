@@ -13,9 +13,9 @@ spring:
   datasource:
     platform: mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.100.81/REGISTRAR?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://35.232.104.121/REGISTRAR?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&useTimezone=true&serverTimezone=UTC
     username: root
-    password: root
+    password: 79bw6rhEprJuCmIg
     connectionProperties: useUnicode=true;characterEncoding=utf-8;
 
   jpa:
