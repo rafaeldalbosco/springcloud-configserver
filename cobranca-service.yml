@@ -40,7 +40,7 @@ spring:
   flyway:
     enabled: true    
     baseline-on-migrate: true
-    schemas: REGISTRAR
+    schemas: COBRANCA
     validate-on-migrate: true
     
 ---
