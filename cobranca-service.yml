@@ -38,7 +38,10 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
   flyway:
-    enabled: false
+    enabled: true    
+    baseline-on-migrate: true
+    schemas: REGISTRAR
+    validate-on-migrate: true
     
 ---
 
