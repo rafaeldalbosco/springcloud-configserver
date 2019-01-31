@@ -1,11 +1,12 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
 
 info:
   id: ${spring.application.name}
 
-#logging:
-#  level: debug
 agende:
   pubsub:
     topic:
@@ -31,28 +32,38 @@ endpoints:
 
 eureka:
   client:
-    serviceUrl:
+    serviceUrl:      
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true      
 
 feign:
   hystrix:
     enabled: true
+  compression:
+    min-request-size: 2048
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+    request:
+      enabled: true
+    response:
+      enabled: true
+  httpclient:
+    enabled: true    
   client:
     config:
       feignName:
         connectTimeout: 50000
         readTimeout: 50000
         loggerLevel: full
+        decode404: false
 #        errorDecoder: com.example.SimpleErrorDecoder
 #        retryer: com.example.SimpleRetryer
 #        requestInterceptors:
 #        - com.example.FooRequestInterceptor
 #        - com.example.BarRequestInterceptor
-        decode404: false
 #        encoder: com.example.SimpleEncoder
 #        decoder: com.example.SimpleDecoder
 #        contract: com.example.SimpleContract
-
 hystrix:
   shareSecurityContext: true
   command:
@@ -62,10 +73,11 @@ hystrix:
           enabled: false
         isolation:
           strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 300000          
 ribbon:
   ConnectTimeout:  10000
-  ReadTimeout:  10000
-  
+  ReadTimeout:  10000 
 ---
 spring:
   profiles: producao
@@ -74,7 +86,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-service:8761/eureka/
+      defaultZone: http://35.224.180.227:8761/eureka/
 #logging:
 #  level: warn
 #  logstash:
