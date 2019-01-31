@@ -42,9 +42,11 @@ spring:
       max-request-size: 100MB
 
   flyway:
-    enabled: true
-    schemas: TIMELINEPROFISSIONAL
+    enabled: true    
+    baseline-on-migrate: true    
     validate-on-migrate: true
+    schemas: TIMELINEPROFISSIONAL
+    
 
 ---
 
