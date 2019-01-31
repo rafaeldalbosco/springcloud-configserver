@@ -11,16 +11,16 @@ agende:
   pubsub:
     topic:
       profissional:
-        listener: profissional
-        subscribe: profissional-subscribe
+        listener: hom-profissional
+        subscribe: hom-profissional-subscribe
       agendamento:
-        listener: agendamento
-        subscribe: agendamento-subscribe
-        publish: agendamento-to-web
+        listener: hom-agendamento
+        subscribe: hom-agendamento-subscribe
+        publish: hom-agendamento-to-web
       usuario:
-        listener: paciente
-        subscribe: paciente-subscribe
-        publish: paciente-to-web
+        listener: hom-paciente
+        subscribe: hom-paciente-subscribe
+        publish: hom-paciente-to-web
         
 endpoints:
   restart:
@@ -86,7 +86,21 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.224.180.227:8761/eureka/
+      defaultZone: http://eureka:8761/eureka/
+agende:
+  pubsub:
+    topic:
+      profissional:
+        listener: profissional
+        subscribe: profissional-subscribe
+      agendamento:
+        listener: agendamento
+        subscribe: agendamento-subscribe
+        publish: agendamento-to-web
+      usuario:
+        listener: paciente
+        subscribe: paciente-subscribe
+        publish: paciente-to-web      
 #logging:
 #  level: warn
 #  logstash:
