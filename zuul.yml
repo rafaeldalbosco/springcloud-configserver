@@ -1,39 +1,43 @@
 server:
   port: ${PORT:8080}
-
-security:
-  basic:
-    enabled: false
-  oauth2:
-    resource:
-      userInfoUri: http://localhost:9999/uaa/user
-
 zuul:
+  host:
+    socket-timeout-millis: 3000000
   routes:
     security:
       path: /uaa/**
       stripPrefix: false
       serviceId: SECURITY-SERVICE
     registrar:
-      path: /timelineprofissional/**
+      path: /registrar/**
       serviceId: REGISTRAR-SERVICE
     timeline:
-      path: /timelineprofissional/**
+      path: /timeline/**
       serviceId: TIMELINE-SERVICE
     timelineprofissional:
       path: /timelineprofissional/**
       serviceId: TIMELINEPROFISSIONAL-SERVICE
+    cobranca:
+      path: /cobranca/**
+      serviceId: COBRANCA-SERVICE
     notificacao:
       path: /notificacao/**
-      serviceId: NOTIFICACAO-SERVICE
-    cartao:
-      path: /cartao/**
-      serviceId: CARTAO-SERVICE
-    administracao:
-      path: /administracao/**
-      serviceId: ADMINISTRACAO-SERVICE
-  add-proxy-headers: true
-
+      serviceId: NOTIFICACAO-SERVICE     
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+ribbon:
+  ReadTimeout: 1000000
+  ConnectTimeout: 1000000
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
 ---
 spring:
   profiles: producao
