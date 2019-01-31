@@ -42,7 +42,7 @@ spring:
     enabled: true    
     baseline-on-migrate: true    
     validate-on-migrate: true
-    schemas: NOTAFICACAO
+    schemas: NOTIFICACAO
 
 ---
 
