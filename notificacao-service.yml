@@ -39,9 +39,10 @@ spring:
       max-request-size: 100MB
 
   flyway:
-    enabled: true
-    schemas: NOTAFICACAO
+    enabled: true    
+    baseline-on-migrate: true    
     validate-on-migrate: true
+    schemas: NOTAFICACAO
 
 ---
 
