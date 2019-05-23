@@ -5,4 +5,45 @@ server:
 security:
   user:
     password: password
-  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
+  ignored: /css/**,/js/**,/favicon.ico,/webjars/*
+  
+spring:
+  datasource:
+    platform: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/oauth2?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: root
+    connectionProperties: useUnicode=true;characterEncoding=utf-8;
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+        type: trace
+        generate_statistics: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    schemas: oauth2
+
+agende:
+  security:
+    client-id: fooClientIdPassword
+    secret: secret
